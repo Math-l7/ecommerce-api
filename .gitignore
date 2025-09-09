@@ -1,0 +1,32 @@
+# Maven / build
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+
+# IntelliJ IDEA
+*.iml
+.idea/
+out/
+
+# Eclipse
+*.classpath
+*.project
+*.settings/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Credenciais / variáveis de ambiente
+.env
+application-local.properties
+application-test.properties
+
+# Outros arquivos temporários
+*.tmp
