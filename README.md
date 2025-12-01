@@ -162,10 +162,3 @@ A aplicação conta com testes unitários utilizando:
 **Matheus Luiz (Math-l7)**
 [GitHub](https://github.com/Math-l7)
 
-```
-
-```
-
-```
-
-```
