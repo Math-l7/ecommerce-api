@@ -53,7 +53,6 @@ public class User implements UserDetails {
 
     }
 
-    // one to many (user -> pedidos)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Order> orderList;
 
@@ -64,32 +63,32 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.password; // já existe atributo password
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return this.email; // Spring usa como "username", mas aqui vai ser o email
+        return this.email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true; // se quiser bloquear usuário por expiração, muda aqui
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true; // se quiser bloquear manualmente usuários
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true; // se quiser expirar senha após X tempo
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true; // pode criar campo "enabled" no User e usar aqui
+        return true;
     }
 
 }

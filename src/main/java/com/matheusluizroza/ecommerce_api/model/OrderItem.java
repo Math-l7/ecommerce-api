@@ -23,17 +23,14 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // Pedido ao qual esse item pertence
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    // Produto que está no pedido
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    // Quantidade desse produto no pedido
     @Column(nullable = false)
     private Integer quantity;
 

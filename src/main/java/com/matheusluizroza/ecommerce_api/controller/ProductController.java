@@ -7,9 +7,10 @@ import com.matheusluizroza.ecommerce_api.dto.product.ProductInputDTO;
 import com.matheusluizroza.ecommerce_api.dto.product.ProductReturnDTO;
 import com.matheusluizroza.ecommerce_api.service.ProductService;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,11 +23,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/products")
 public class ProductController {
 
-    @Autowired
-    private ProductService service;
+    private final ProductService service;
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping

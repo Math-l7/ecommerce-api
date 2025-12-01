@@ -11,7 +11,6 @@ import java.security.Key;
 import java.util.Date;
 import java.util.function.Function;
 
-//usei IA pra gerar a base e depois refatorei e integrei ao Spring Boot
 @Service
 public class JwtService {
 
@@ -22,7 +21,6 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    // Gera token para o username
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -32,12 +30,10 @@ public class JwtService {
                 .compact();
     }
 
-    // Extrai username do token
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-    // Extrai qualquer claim do token
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);

@@ -9,8 +9,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.matheusluizroza.ecommerce_api.model.Order;
 
-// PaymentGateWayService: classe construída com auxílio de IA, adaptada para a lógica da aplicação.
-
 @Service
 public class PaymentGateWayService {
     private final RestTemplate restTemplate = new RestTemplate();

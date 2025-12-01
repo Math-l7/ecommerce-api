@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,24 +22,21 @@ import com.matheusluizroza.ecommerce_api.repository.ProductRepository;
 import com.matheusluizroza.ecommerce_api.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private ProductService serviceProduct;
+    private final ProductService serviceProduct;
 
-    @Autowired
-    ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
-    @Autowired
-    private PaymentGateWayService gatewayService;
+    private final PaymentGateWayService gatewayService;
 
     public OrderReturnDTO toDTO(Order order) {
         OrderReturnDTO dto = new OrderReturnDTO();

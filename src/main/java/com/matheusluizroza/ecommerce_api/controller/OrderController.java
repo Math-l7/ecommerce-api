@@ -9,9 +9,10 @@ import com.matheusluizroza.ecommerce_api.dto.order.OrderReturnDTO;
 import com.matheusluizroza.ecommerce_api.enums.OrderStatus;
 import com.matheusluizroza.ecommerce_api.service.OrderService;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,11 +23,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/order")
 public class OrderController {
 
-    @Autowired
-    private OrderService service;
+    private final OrderService service;
 
     @PostMapping
     public ResponseEntity<OrderReturnDTO> createOrder(@RequestBody OrderInputDTO order) {

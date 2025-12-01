@@ -17,12 +17,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<Map<String, Object>> handleResponseStatusException(ResponseStatusException ex) {
         Map<String, Object> body = new HashMap<>();
-        HttpStatusCode statusCode = ex.getStatusCode(); // HttpStatusCode
+        HttpStatusCode statusCode = ex.getStatusCode();
         body.put("timestamp", LocalDateTime.now());
-        body.put("status", statusCode.value()); // pega o valor numérico
-        body.put("error", statusCode.toString()); // converte pra string
+        body.put("status", statusCode.value());
+        body.put("error", statusCode.toString());
         body.put("message", ex.getReason() != null ? ex.getReason() : statusCode.toString());
-        return ResponseEntity.status(statusCode.value()).body(body); // converte para int
+        return ResponseEntity.status(statusCode.value()).body(body);
     }
 
     @ExceptionHandler(Exception.class)

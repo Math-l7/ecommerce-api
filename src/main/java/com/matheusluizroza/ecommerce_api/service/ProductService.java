@@ -2,7 +2,6 @@ package com.matheusluizroza.ecommerce_api.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,12 +13,13 @@ import com.matheusluizroza.ecommerce_api.model.Product;
 import com.matheusluizroza.ecommerce_api.repository.ProductRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
-    @Autowired
-    private ProductRepository repository;
+    private final ProductRepository repository;
 
     public ProductReturnDTO toDTO(Product product) {
         ProductReturnDTO dto = new ProductReturnDTO();
