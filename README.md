@@ -24,6 +24,29 @@ A arquitetura foi planejada seguindo práticas utilizadas em aplicações profis
 
 ---
 
+## 🧾 Integração com Payment Gateway (Simulação Realista)
+
+A aplicação conta com um **módulo interno de Payment Gateway**, responsável por processar pagamentos de forma desacoplada e segura.  
+Embora utilize um endpoint externo para simulação (`https://httpbin.org/post`), o fluxo foi projetado seguindo padrões usados em gateways reais como **Stripe**, **Mercado Pago**, **PagSeguro** e **PayPal**.
+
+---
+
+### 🔌 Como funciona o fluxo de pagamento
+
+1. O service `PaymentGateWayService` recebe os dados do pedido.
+2. Monta um payload contendo:
+   - `orderId`
+   - `amount`
+   - `customerEmail`
+3. Envia os dados para o gateway via `RestTemplate`.
+4. Valida:
+   - Status HTTP
+   - Integridade da resposta
+5. Se **sucesso** → o pedido é marcado como **pago**.
+6. Se **erro** → o pedido permanece **pendente**, simulando um processamento real.
+
+---
+
 ## 📂 Estrutura de Pacotes
 
 com.matheusluizroza.ecommerce_api
