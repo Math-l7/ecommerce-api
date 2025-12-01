@@ -137,6 +137,8 @@ docker compose up --build
 - `POST /api/order` → Criar pedido
 - `PUT /api/order/pay/{id}` → Pagar pedido
 
+```
+
 ---
 
 ## 📖 Documentação Swagger
@@ -159,6 +161,8 @@ A aplicação conta com testes unitários utilizando:
 
 **Matheus Luiz (Math-l7)**
 [GitHub](https://github.com/Math-l7)
+
+```
 
 ```
 
